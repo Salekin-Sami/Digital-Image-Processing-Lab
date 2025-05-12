@@ -1,0 +1,59 @@
+% 1. Writing a program for the addition and subtraction of two images.
+clc;
+clear all;
+close all;
+
+
+img1 = imread('image1.jpg');
+img2 = imread('image2.jpg');
+
+
+img3 = imresize(img1, [1440, 1080]);
+img4 = imresize(img2, [1440, 1080]);
+
+figure();
+imshow(img3);
+title('first image');
+
+figure()
+imshow(img4);
+title('second image');
+
+[width, height] = size(img3);
+img5 = img3;
+
+for i = 1:width
+    for j = 1:height
+        img5(i,j) = img3(i,j)- img4(i, j);
+    end
+end
+figure();
+imshow(img5);
+title('Substraction');
+
+img6 = img3;
+
+for i = 1:width
+    for j = 1:height
+        img6(i,j) = img3(i,j)+ img4(i, j);
+    end
+end
+figure();
+imshow(img6);
+title('Addition');
+
+
+img7 = img3+img4;
+figure();
+imshow(img7);
+title('Addition2');
+
+img8 = img3-img4;
+figure();
+imshow(img8);
+title('Substraction2');
+
+
+
+        
+
